@@ -51,7 +51,7 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.iot.virtualfirealarm.backend.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.virtualfirealarm.backend.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
@@ -70,7 +70,7 @@
                             <deleteOldProfileFiles>false</deleteOldProfileFiles>
                             <features>
                                 <feature>
-                                    <id>org.wso2.carbon.device.mgt.iot.virtualfirealarm.backend.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.virtualfirealarm.backend.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                             </features>

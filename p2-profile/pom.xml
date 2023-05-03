@@ -66,7 +66,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.wso2.carbon.devicemgt-plugins</groupId>
+                                    <groupId>io.entgra.device.mgt.plugins</groupId>
                                     <artifactId>io.entgra.device.mgt.plugins.emqx.exhook</artifactId>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                     <type>jar</type>
@@ -88,7 +88,7 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>org.wso2.carbon.devicemgt-plugins</groupId>
+                                    <groupId>io.entgra.device.mgt.plugins</groupId>
                                     <artifactId>io.entgra.device.mgt.plugins.emqx.initializer</artifactId>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                     <type>jar</type>
@@ -120,19 +120,19 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.adapter.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.adapter.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.notification.listener.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.extension.siddhi.device.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.device.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.extension.siddhi.execution.json.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.execution.json.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    org.wso2.carbon.devicemgt-plugins:org.wso2.carbon.device.mgt.iot.analytics.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.analytics.feature:${carbon.device.mgt.plugin.version}
                                 </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
@@ -151,23 +151,23 @@
                             <deleteOldProfileFiles>true</deleteOldProfileFiles>
                             <features>
                                 <feature>
-                                    <id>org.wso2.carbon.device.mgt.adapter.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.adapter.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.device.mgt.notification.listener.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.notification.listener.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.extension.siddhi.device.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.extension.siddhi.device.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.extension.siddhi.execution.json.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.extension.siddhi.execution.json.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                                 <feature>
-                                    <id>org.wso2.carbon.device.mgt.iot.analytics.feature.group</id>
+                                    <id>io.entgra.device.mgt.plugins.analytics.feature.group</id>
                                     <version>${carbon.device.mgt.plugin.version}</version>
                                 </feature>
                             </features>
