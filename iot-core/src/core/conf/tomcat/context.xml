@@ -71,5 +71,5 @@
             </Permission>
     </PermissionConfiguration>
      -->
-    <Listener className="org.wso2.carbon.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"/>
+    <Listener className="io.entgra.device.mgt.core.device.mgt.core.config.permission.lifecycle.WebAppDeploymentLifecycleListener"/>
 </Context>

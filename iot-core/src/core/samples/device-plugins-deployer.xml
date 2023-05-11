@@ -51,7 +51,7 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.virtualfirealarm.backend.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.virtualfirealarm.backend.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
@@ -71,7 +71,7 @@
                             <features>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.virtualfirealarm.backend.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                             </features>
                         </configuration>
@@ -191,6 +191,6 @@
 
     <properties>
 		<!--This gets picked from the build properties, Do not change it-->
-        <carbon.device.mgt.plugin.version>6.0.16-SNAPSHOT</carbon.device.mgt.plugin.version>
+        <io.entgra.device.mgt.plugins.version>6.0.16-SNAPSHOT</io.entgra.device.mgt.plugins.version>
     </properties>
 </project>

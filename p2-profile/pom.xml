@@ -68,7 +68,7 @@
                                 <artifactItem>
                                     <groupId>io.entgra.device.mgt.plugins</groupId>
                                     <artifactId>io.entgra.device.mgt.plugins.emqx.exhook</artifactId>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <classifier>jar-with-dependencies</classifier>
@@ -90,7 +90,7 @@
                                 <artifactItem>
                                     <groupId>io.entgra.device.mgt.plugins</groupId>
                                     <artifactId>io.entgra.device.mgt.plugins.emqx.initializer</artifactId>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                     <type>jar</type>
                                     <overWrite>true</overWrite>
                                     <outputDirectory>${project.basedir}/target/${entgra-iot-core}/repository/components/dropins/</outputDirectory>
@@ -120,19 +120,19 @@
                             <publishArtifactRepository>true</publishArtifactRepository>
                             <featureArtifacts>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.adapter.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.adapter.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.notification.listener.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.device.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.device.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.execution.json.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.extension.siddhi.execution.json.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
-                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.analytics.feature:${carbon.device.mgt.plugin.version}
+                                    io.entgra.device.mgt.plugins:io.entgra.device.mgt.plugins.analytics.feature:${io.entgra.device.mgt.plugins.version}
                                 </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
@@ -152,23 +152,23 @@
                             <features>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.adapter.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.notification.listener.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.extension.siddhi.device.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.extension.siddhi.execution.json.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                                 <feature>
                                     <id>io.entgra.device.mgt.plugins.analytics.feature.group</id>
-                                    <version>${carbon.device.mgt.plugin.version}</version>
+                                    <version>${io.entgra.device.mgt.plugins.version}</version>
                                 </feature>
                             </features>
                         </configuration>

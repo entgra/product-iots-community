@@ -21,6 +21,6 @@ deploy:
   script:
     - mvn $MAVEN_CLI_OPTS deploy
   only:
-    - master@entgra/community-product
+    - master@entgra/product-iots-community
   tags:
     - OracleJDK1.8
