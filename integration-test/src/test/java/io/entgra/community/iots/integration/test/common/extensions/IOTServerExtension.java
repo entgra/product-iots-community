@@ -15,7 +15,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package org.wso2.iot.integration.common.extensions;
+
+package io.entgra.community.iots.integration.test.common.extensions;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,23 +31,23 @@ import org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerEx
 import javax.xml.xpath.XPathExpressionException;
 
 /**
- * Test Automation server extension to start the Broker.
- * This will set the carbon_home to {carbonHome}/core and port offset : 3
+ * Test Automation server extension to start the IOT core.
+ * This will set the carbon_home to {carbonHome}/core and port offset : 0
  */
-public class BrokerServerExtension extends ExecutionListenerExtension {
+public class IOTServerExtension extends ExecutionListenerExtension {
 
     private CustomTestServerManager serverManager;
     private static final Log log = LogFactory.getLog(CarbonServerExtension.class);
     private String executionEnvironment;
     private AutomationContext automationContext;
-    private final String BROKER_PORT_OFFSET = "3";
+    private final String IOT_CORE_PORT_OFFSET = "0";
 
     @Override
     public void initiate() {
         try {
             automationContext = new AutomationContext("IOT", TestUserMode.SUPER_TENANT_USER);
             if (getParameters().get(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND) == null) {
-                getParameters().put(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND, BROKER_PORT_OFFSET);
+                getParameters().put(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND, IOT_CORE_PORT_OFFSET);
             }
             serverManager = new CustomTestServerManager(getAutomationContext(), null, getParameters());
             executionEnvironment =
@@ -61,9 +62,12 @@ public class BrokerServerExtension extends ExecutionListenerExtension {
     public void onExecutionStart() {
         try {
             if (executionEnvironment.equalsIgnoreCase(ExecutionEnvironment.STANDALONE.name())) {
-                String carbonHome = serverManager.startServer("broker");
+                String carbonHome = serverManager.startServer("core");
                 log.info(carbonHome);
                 System.setProperty(ExtensionConstants.CARBON_HOME, carbonHome);
+
+                // Need to give time for the apis to be added to the synapse configurations.
+                Thread.sleep(200000);
             }
         } catch (Exception e) {
             throw new RuntimeException("Fail to start carbon server ", e);

@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.iot.integration.common;
+package io.entgra.community.iots.integration.test.common;
 
 /**
  * This class contains the functions to handle a HTTP Response

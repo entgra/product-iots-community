@@ -59,7 +59,7 @@
                         <property>
                             <name>carbon.zip</name>
                             <value>
-                                ${basedir}/../../distribution/iot-community/target/${entgra-iot-community}.zip
+                                ${basedir}/../distribution/iot-community/target/${entgra-iot-community}.zip
                             </value>
                         </property>
                         <property>

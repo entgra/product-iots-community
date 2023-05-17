@@ -15,8 +15,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
-package org.wso2.iot.integration.common.extensions;
+package io.entgra.community.iots.integration.test.common.extensions;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -31,23 +30,23 @@ import org.wso2.carbon.automation.extensions.servers.carbonserver.CarbonServerEx
 import javax.xml.xpath.XPathExpressionException;
 
 /**
- * Test Automation server extension to start the DAS.
- * This will set the carbon_home to {carbonHome}/core and port offset : 2
+ * Test Automation server extension to start the Broker.
+ * This will set the carbon_home to {carbonHome}/core and port offset : 3
  */
-public class AnalyticsServerExtension extends ExecutionListenerExtension {
+public class BrokerServerExtension extends ExecutionListenerExtension {
 
     private CustomTestServerManager serverManager;
     private static final Log log = LogFactory.getLog(CarbonServerExtension.class);
     private String executionEnvironment;
     private AutomationContext automationContext;
-    private final String ANALYTICS_PORT_OFFSET = "2";
+    private final String BROKER_PORT_OFFSET = "3";
 
     @Override
     public void initiate() {
         try {
             automationContext = new AutomationContext("IOT", TestUserMode.SUPER_TENANT_USER);
             if (getParameters().get(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND) == null) {
-                getParameters().put(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND, ANALYTICS_PORT_OFFSET);
+                getParameters().put(ExtensionConstants.SERVER_STARTUP_PORT_OFFSET_COMMAND, BROKER_PORT_OFFSET);
             }
             serverManager = new CustomTestServerManager(getAutomationContext(), null, getParameters());
             executionEnvironment =
@@ -62,7 +61,9 @@ public class AnalyticsServerExtension extends ExecutionListenerExtension {
     public void onExecutionStart() {
         try {
             if (executionEnvironment.equalsIgnoreCase(ExecutionEnvironment.STANDALONE.name())) {
-                String carbonHome = serverManager.startServer("analytics");
+                String carbonHome = serverManager.startServer("broker");
+                log.info(carbonHome);
+                System.setProperty(ExtensionConstants.CARBON_HOME, carbonHome);
             }
         } catch (Exception e) {
             throw new RuntimeException("Fail to start carbon server ", e);

@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.iot.integration.jmeter;
+package io.entgra.community.iots.integration.test.jmeter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

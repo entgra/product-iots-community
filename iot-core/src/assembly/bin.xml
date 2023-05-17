@@ -51,7 +51,7 @@
             <directory>${basedir}/target/${wso2am}</directory>
             <outputDirectory>${entgra-iot-core}</outputDirectory>
             <excludes>
-                <exclude>**/repository/conf/tomcat/context.xml</exclude>
+<!--                <exclude>**/repository/conf/tomcat/context.xml</exclude>-->
                 <exclude>**/repository/conf/deployment.toml</exclude>
             </excludes>
         </fileSet>

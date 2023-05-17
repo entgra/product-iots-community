@@ -29,7 +29,7 @@
 
     <test name="iot-test-cases" preserve-order="true" parallel="false">
         <classes>
-            <class name="org.wso2.iot.integration.jmeter.AndroidDeviceManagementAPIJmeterTestCase"/>
+            <class name="io.entgra.community.iots.integration.test.jmeter.AndroidDeviceManagementAPIJmeterTestCase"/>
         </classes>
     </test>
 </suite>

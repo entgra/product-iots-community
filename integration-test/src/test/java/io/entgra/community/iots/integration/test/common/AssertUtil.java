@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.iot.integration.common;
+package io.entgra.community.iots.integration.test.common;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

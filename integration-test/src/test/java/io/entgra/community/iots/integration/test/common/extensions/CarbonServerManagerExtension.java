@@ -16,7 +16,7 @@
  * under the License.
  */
 
-package org.wso2.iot.integration.common.extensions;
+package io.entgra.community.iots.integration.test.common.extensions;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
