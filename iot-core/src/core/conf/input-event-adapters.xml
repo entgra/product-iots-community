@@ -18,21 +18,6 @@
 
 <inputEventAdaptersConfig>
 
-    <adapterConfig type="oauth-mqtt">
-        <!-- Thread Pool Related Properties -->
-        <property key="minThread">8</property>
-        <property key="maxThread">100</property>
-        <property key="keepAliveTimeInMillis">20000</property>
-        <property key="jobQueueSize">10000</property>
-        <property key="connectionKeepAliveInterval">60</property>
-        <property key="dcrUrl">https://${iot.keymanager.host}:${iot.keymanager.https.port}/client-registration/v0.17/register</property>
-        <property key="url">tcp://${mqtt.broker.host}:${mqtt.broker.port}</property>
-        <property key="username">admin</property>
-        <property key="password">admin</property>
-        <property key="contentValidator">deviceid-topic-content-validator</property>
-        <property key="cleanSession">true</property>
-    </adapterConfig>
-
     <adapterConfig type="http">
         <property key="minThread">8</property>
         <property key="maxThread">100</property>
@@ -53,4 +38,18 @@
         <property key="jobQueueSize">10000</property>
     </adapterConfig>
 
+    <adapterConfig type="oauth-mqtt">
+        <!-- Thread Pool Related Properties -->
+        <property key="minThread">8</property>
+        <property key="maxThread">100</property>
+        <property key="keepAliveTimeInMillis">20000</property>
+        <property key="jobQueueSize">10000</property>
+        <property key="connectionKeepAliveInterval">60</property>
+        <property key="dcrUrl">https://${iot.keymanager.host}:${iot.keymanager.https.port}/client-registration/v0.17/register</property>
+        <property key="url">tcp://${mqtt.broker.host}:${mqtt.broker.port}</property>
+        <property key="username">admin</property>
+        <property key="password">admin</property>
+        <property key="contentValidator">deviceid-topic-content-validator</property>
+        <property key="cleanSession">true</property>
+    </adapterConfig>
 </inputEventAdaptersConfig>

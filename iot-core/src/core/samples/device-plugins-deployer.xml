@@ -21,13 +21,13 @@
     <parent>
         <groupId>org.wso2</groupId>
         <artifactId>wso2</artifactId>
-        <version>1</version>
+        <version>1.3</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.entgra.community.iots</groupId>
     <artifactId>iot-devicetype-feature-installation</artifactId>
-    <version>5.2.1-SNAPSHOT</version>
+    <version>5.2.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Install Virtual Fire Alarm Device Types - IoT Core</name>
 

@@ -283,3 +283,19 @@ renew_refresh_token=false
 
 [device_mgt_conf.pull_notification_conf]
 enabled=false
+
+[[output_adapter.custom_output_adapter]]
+adapter.type = "oauth-mqtt"
+[adapter.properties]
+minThread = 8
+maxThread = 100
+keepAliveTimeInMillis = 20000
+jobQueueSize = 10000
+connectionKeepAliveInterval = 60
+dcrUrl = "https://${iot.keymanager.host}:${iot.keymanager.https.port}/client-registration/v0.17/register"
+tokenUrl = "https://${iot.gateway.host}:${iot.gateway.https.port}/token"
+url = "tcp://${mqtt.broker.host}:${mqtt.broker.port}"
+username = "${admin.username}"
+password = "${admin.password}"
+qos = 2
+clearSession = true
