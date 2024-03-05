@@ -21,7 +21,7 @@
     <parent>
         <groupId>io.entgra.community.iots</groupId>
         <artifactId>io.entgra.community.iots.parent</artifactId>
-        <version>5.2.6</version>
+        <version>5.2.7-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
