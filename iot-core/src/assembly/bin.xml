@@ -51,7 +51,7 @@
             <directory>${basedir}/target/${wso2am}</directory>
             <outputDirectory>${entgra-iot-core}</outputDirectory>
             <excludes>
-<!--                <exclude>**/repository/conf/tomcat/context.xml</exclude>-->
+                <exclude>**/repository/conf/tomcat/context.xml</exclude>
                 <exclude>**/repository/conf/deployment.toml</exclude>
             </excludes>
         </fileSet>
@@ -93,10 +93,6 @@
             <outputDirectory>${entgra-iot-core}/repository/conf/</outputDirectory>
         </file>
         <file>
-            <source>src/core/conf/output-event-adapters.xml.j2</source>
-            <outputDirectory>${entgra-iot-core}/repository/resources/conf/templates/repository/conf</outputDirectory>
-        </file>
-        <file>
             <source>src/core/keystores/wso2carbon.jks</source>
             <outputDirectory>${entgra-iot-core}/repository/resources/security/</outputDirectory>
         </file>
@@ -115,7 +111,6 @@
             <outputDirectory>${entgra-iot-core}/repository/components/dropins</outputDirectory>
             <includes>
                 <include>io.entgra.device.mgt.core:io.entgra.device.mgt.core.device.mgt.oauth.extensions</include>
-                <include>io.entgra.device.mgt.core:io.entgra.device.mgt.core.apimgt.keymgt.extension</include>
             </includes>
             <!--<useProjectArtifact>false</useProjectArtifact>-->
             <!--<useTransitiveDependencies>true</useTransitiveDependencies>-->

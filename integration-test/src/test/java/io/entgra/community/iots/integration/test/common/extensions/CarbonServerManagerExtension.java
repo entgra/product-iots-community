@@ -22,8 +22,11 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
 import org.apache.commons.io.filefilter.RegexFileFilter;
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.wso2.carbon.automation.engine.context.AutomationContext;
 import org.wso2.carbon.automation.engine.context.beans.User;
 import org.wso2.carbon.automation.engine.exceptions.AutomationFrameworkException;
@@ -40,6 +43,7 @@ import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -53,6 +57,7 @@ public class CarbonServerManagerExtension {
     private ServerLogReader inputStreamHandler;
     private ServerLogReader errorStreamHandler;
     private boolean isCoverageEnable = false;
+    private Set<String> coverageClassesDirectories = new HashSet();
     private String coverageDumpFilePath;
     private int portOffset = 0;
     private static final String SERVER_SHUTDOWN_MESSAGE = "Halting JVM";
@@ -183,6 +188,7 @@ public class CarbonServerManagerExtension {
 
                 try {
                     this.isCoverageEnable = Boolean.parseBoolean(this.automationContext.getConfigurationValue("//coverage"));
+                    this.coverageClassesDirectories = this.getCoverageClassesDirectories(this.automationContext);
                 } catch (XPathExpressionException var8) {
                     throw new AutomationFrameworkException("Coverage configuration not found in automation.xml", var8);
                 }
@@ -194,6 +200,28 @@ public class CarbonServerManagerExtension {
                 return this.carbonHome;
             }
         }
+    }
+
+    private Set<String> getCoverageClassesDirectories(AutomationContext automationContext) throws XPathExpressionException {
+        Set<String> coverageDirectories = new HashSet();
+        Node configurationNode = automationContext.getConfigurationNode("//coverageClassesRelativeDirectories");
+        if (configurationNode != null) {
+            NodeList childNodes = configurationNode.getChildNodes();
+            if (childNodes != null) {
+                for(int i = 0; i <= childNodes.getLength() - 1; ++i) {
+                    Node node = childNodes.item(i);
+                    if (node != null && "coverageClassesRelativeDirectory".equals(node.getNodeName())) {
+                        coverageDirectories.add(node.getTextContent());
+                    }
+                }
+            }
+        } else if (StringUtils.isNotEmpty(automationContext.getConfigurationValue("//coverageClassesRelativeDirectory"))) {
+            coverageDirectories.add(automationContext.getConfigurationValue("//coverageClassesRelativeDirectory"));
+        } else {
+            coverageDirectories.add("repository" + File.separator + "components" + File.separator + "plugins" + File.separator);
+        }
+
+        return coverageDirectories;
     }
 
     public synchronized void serverShutdown(int portOffset) throws AutomationFrameworkException {
@@ -235,8 +263,7 @@ public class CarbonServerManagerExtension {
             if(this.isCoverageEnable) {
                 try {
                     log.info("Generating Jacoco code coverage...");
-                    this.generateCoverageReport(new File(this.carbonHome + File.separator + "repository"
-                            + File.separator + "components" + File.separator + "plugins" + File.separator));
+                    this.generateCoverageReport(this.coverageClassesDirectories);
                 } catch (IOException var7) {
                     log.error("Failed to generate code coverage ", var7);
                     throw new AutomationFrameworkException("Failed to generate code coverage ", var7);
@@ -250,7 +277,7 @@ public class CarbonServerManagerExtension {
 
     }
 
-    private void generateCoverageReport(File classesDir) throws IOException, AutomationFrameworkException {
+    private void generateCoverageReport(Set<String> classesDir) throws IOException, AutomationFrameworkException {
         checkJacocoDataFileSizes(FrameworkPathUtil.getJacocoCoverageHome());
         CodeCoverageUtils.executeMerge(FrameworkPathUtil.getJacocoCoverageHome(), FrameworkPathUtil.getCoverageMergeFilePath());
         ReportGenerator reportGenerator = new ReportGenerator(new File(FrameworkPathUtil.getCoverageMergeFilePath()), classesDir, new File(CodeCoverageUtils.getJacocoReportDirectory()), (File)null);
