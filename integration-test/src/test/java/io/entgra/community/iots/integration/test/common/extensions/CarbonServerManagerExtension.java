@@ -42,7 +42,11 @@ import org.wso2.carbon.automation.extensions.servers.utils.ServerLogReader;
 import javax.xml.xpath.XPathExpressionException;
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 
 public class CarbonServerManagerExtension {
